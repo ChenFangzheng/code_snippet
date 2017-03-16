@@ -1,0 +1,55 @@
+.yearText{
+    font-size: 22px;
+    font-family: "Microsoft Yahei";
+    font-weight: bold;
+}
+.outLegendTxt, .inLegendTxt{
+     font-size: 16px;
+    font-family: "Microsoft Yahei";
+    font-weight: bold;
+}
+.switchBtn{
+    fill:#fff;
+    cursor: pointer;
+}
+.dayTexts{
+    color:#000;
+    font-size:17px;
+    font-weight: 600;
+    font-family: "Microsoft Yahei";
+}
+.monthTexts{
+    color:#000;
+    font-size:14px;
+    font-weight: 500;
+    font-family: "Microsoft Yahei";
+}
+.dataLine{
+    stroke: #dec5f0;
+    stroke-width: 2;
+}
+.outDataLine{
+    stroke: rgb(146,62,204);
+    stroke-width: 1;
+    fill: none;
+}
+.inDataRect{
+   
+}
+.outDataCircle{
+
+}
+
+.currentText{
+    font-family: "Microsoft YaHei";
+    fill: #fff;
+    font-size:12px;
+    .currentValue{
+        fill: #fff;
+        font-size:26px;
+    }
+    .currentValues{
+        fill: #fff;
+        font-size:16px;
+    }
+}

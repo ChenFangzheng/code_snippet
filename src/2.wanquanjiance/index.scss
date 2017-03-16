@@ -1,0 +1,20 @@
+@import '../sass/main.scss';
+.page {
+    height: 100%;
+}
+
+.page1 {
+    width: 1450px;
+    // border: 1px solid blueviolet
+}
+
+.page2 {
+    flex: 1;
+}
+.logo{
+            width: 737px;
+            height: 254px;
+            margin-top: 35px;
+            background-image: url("../images/logo_wqjc.png");
+            background-repeat: no-repeat;
+        }
