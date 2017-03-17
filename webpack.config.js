@@ -69,7 +69,7 @@ module.exports = {
             inject: 'body'
         }),
         new HtmlwebpackPlugin({
-            title: '政策模拟',
+            title: 'd3v4page',
             template: path.resolve(TEM_PATH, './d3v4/index.html'),
             filename: 'd3v4page.html',
             chunks: ['d3v4page'],
