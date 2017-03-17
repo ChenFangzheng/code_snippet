@@ -211,7 +211,7 @@ export default class WaveChart {
         // Since no month has fewer than 28 days
         var date = new Date(year, month, 1);
         var days = [];
-        console.log('month', month, 'date.getMonth()', date.getMonth())
+        console.log('month', month, 'date.getMonth()', date.getMonth());
         while (date.getMonth() === month) {
             days.push(new Date(date));
             date.setDate(date.getDate() + 1);
@@ -231,7 +231,7 @@ export default class WaveChart {
 
         for (let index = 0; index < this.dataLength - dayLength; index++) {
             dayTexts.push(index + 1);
-            monthTexts.push(`${month + 1}月`)
+            monthTexts.push(`${month + 1}月`);
         }
 
         dayG.selectAll('text')
@@ -343,7 +343,7 @@ export default class WaveChart {
             return {
                 x: this.getCoorX(this.dataLength, i),
                 y: yScale(d)
-            }
+            };
         });
 
         let outLines = [];
