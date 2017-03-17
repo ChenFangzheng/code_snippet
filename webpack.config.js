@@ -10,9 +10,9 @@ var TEM_PATH = path.resolve(APP_PATH, '');
 
 module.exports = {
     entry: {
-        shishijiance: path.resolve(APP_PATH, './d3v3/index.js'),
-        zhengcemoni: path.resolve(APP_PATH, './d3v4/index.js'),
-        wanquanjiance: path.resolve(APP_PATH, './highcharts/index.js'),
+        d3v3page: path.resolve(APP_PATH, './d3v3/index.js'),
+        d3v4page: path.resolve(APP_PATH, './d3v4/index.js'),
+        highcharts: path.resolve(APP_PATH, './highcharts/index.js'),
         vendors: ['jquery', 'highcharts', 'd3', 'lodash', 'babel-polyfill']
     },
     output: {
@@ -62,24 +62,24 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
         new ExtractTextPlugin('[name].css', { allChunks: true }),
         new HtmlwebpackPlugin({
-            title: '实时监测',
+            title: 'd3v3page',
             template: path.resolve(TEM_PATH, './d3v3/index.html'),
             filename: 'index.html',
-            chunks: ['shishijiance', 'vendors'],
+            chunks: ['d3v3page', 'vendors'],
             inject: 'body'
         }),
         new HtmlwebpackPlugin({
             title: '政策模拟',
             template: path.resolve(TEM_PATH, './d3v4/index.html'),
-            filename: 'zhengcemoni.html',
-            chunks: ['zhengcemoni', 'vendors'],
+            filename: 'd3v4page.html',
+            chunks: ['d3v4page', 'vendors'],
             inject: 'body'
         }),
         new HtmlwebpackPlugin({
-            title: '完全监测',
+            title: 'highcharts',
             template: path.resolve(TEM_PATH, './highcharts/index.html'),
-            filename: 'wanquanjiance.html',
-            chunks: ['wanquanjiance', 'vendors'],
+            filename: 'highcharts.html',
+            chunks: ['highcharts', 'vendors'],
             inject: 'body'
         })
 
