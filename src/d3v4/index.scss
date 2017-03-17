@@ -1,48 +1,4 @@
 @import '../sass/main.scss';
 .page {
     height: 100%;
-    // border: 1px solid burlywood;
-}
-
-.page1 {
-    width: 3060px;
-    display: flex;
-    flex-direction: column;
-    #leftTop {
-        flex: 1;
-        width: 100%;
-        .logo {
-            width: 973px;
-            height: 152px;
-            margin-top: 35px;
-            background-image: url("../images/logo_zcmn.png");
-            background-repeat: no-repeat;
-        }
-    }
-    #leftBottom {
-        height: 120px;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        #legend {
-            width: 200px;
-        }
-        #timeLine {
-            margin: 0px;
-        }
-    }
-}
-
-.page2 {
-    width: 2700px;
-    display: flex;
-    flex-direction: column;
-    #rightTop {
-        flex: 1;
-        width: 100%;
-    }
-    #controlPanel {
-        width: 100%;
-        height: 150px;
-    }
 }

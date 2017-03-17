@@ -13,7 +13,7 @@ module.exports = {
         d3v3page: path.resolve(APP_PATH, './d3v3/index.js'),
         d3v4page: path.resolve(APP_PATH, './d3v4/index.js'),
         highcharts: path.resolve(APP_PATH, './highcharts/index.js'),
-        vendors: ['jquery', 'highcharts', 'd3', 'lodash', 'babel-polyfill']
+        //vendors: ['jquery', 'highcharts', 'd3', 'lodash', 'babel-polyfill']
     },
     output: {
         path: BUILD_PATH,
@@ -59,7 +59,7 @@ module.exports = {
     },
 
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
+        new webpack.optimize.CommonsChunkPlugin({ name: 'vendors', chunks: ['d3v3page', 'highcharts'] }),
         new ExtractTextPlugin('[name].css', { allChunks: true }),
         new HtmlwebpackPlugin({
             title: 'd3v3page',
@@ -72,7 +72,7 @@ module.exports = {
             title: '政策模拟',
             template: path.resolve(TEM_PATH, './d3v4/index.html'),
             filename: 'd3v4page.html',
-            chunks: ['d3v4page', 'vendors'],
+            chunks: ['d3v4page'],
             inject: 'body'
         }),
         new HtmlwebpackPlugin({
