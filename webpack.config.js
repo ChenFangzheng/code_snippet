@@ -11,7 +11,7 @@ var TEM_PATH = path.resolve(APP_PATH, '');
 module.exports = {
     entry: {
         shishijiance: path.resolve(APP_PATH, './d3v3/index.js'),
-        zhengcemoni: path.resolve(APP_PATH, './es6test/index.js'),
+        zhengcemoni: path.resolve(APP_PATH, './d3v4/index.js'),
         wanquanjiance: path.resolve(APP_PATH, './highcharts/index.js'),
         vendors: ['jquery', 'highcharts', 'd3', 'lodash', 'babel-polyfill']
     },
@@ -70,7 +70,7 @@ module.exports = {
         }),
         new HtmlwebpackPlugin({
             title: '政策模拟',
-            template: path.resolve(TEM_PATH, './es6test/index.html'),
+            template: path.resolve(TEM_PATH, './d3v4/index.html'),
             filename: 'zhengcemoni.html',
             chunks: ['zhengcemoni', 'vendors'],
             inject: 'body'
