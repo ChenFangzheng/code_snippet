@@ -12,7 +12,8 @@ module.exports = {
     entry: {
         d3v3page: path.resolve(APP_PATH, './d3v3/index.js'),
         d3v4page: path.resolve(APP_PATH, './d3v4/index.js'),
-        highcharts: path.resolve(APP_PATH, './highcharts/index.js')
+        highcharts: path.resolve(APP_PATH, './highcharts/index.js'),
+        jsbasic: path.resolve(APP_PATH, './jsbasic/index.js')
     },
     output: {
         path: BUILD_PATH,
@@ -76,6 +77,13 @@ module.exports = {
             template: path.resolve(TEM_PATH, './highcharts/index.html'),
             filename: 'highcharts.html',
             chunks: ['highcharts', 'vendors'],
+            inject: 'body'
+        }),
+        new HtmlwebpackPlugin({
+            title: 'jsbasic',
+            template: path.resolve(TEM_PATH, './jsbasic/index.html'),
+            filename: 'highcharts.html',
+            chunks: ['jsbasic'],
             inject: 'body'
         })
 

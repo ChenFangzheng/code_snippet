@@ -13,6 +13,7 @@ module.exports = {
         d3v3page: path.resolve(APP_PATH, './d3v3/index.js'),
         d3v4page: path.resolve(APP_PATH, './d3v4/index.js'),
         highcharts: path.resolve(APP_PATH, './highcharts/index.js'),
+        jsbasic: path.resolve(APP_PATH, './jsbasic/index.js'),
         //vendors: ['jquery', 'highcharts', 'd3', 'lodash', 'babel-polyfill']
     },
     output: {
@@ -80,6 +81,13 @@ module.exports = {
             template: path.resolve(TEM_PATH, './highcharts/index.html'),
             filename: 'highcharts.html',
             chunks: ['highcharts', 'vendors'],
+            inject: 'body'
+        }),
+        new HtmlwebpackPlugin({
+            title: 'jsbasic',
+            template: path.resolve(TEM_PATH, './jsbasic/index.html'),
+            filename: 'jsbasic.html',
+            chunks: ['jsbasic'],
             inject: 'body'
         })
 
