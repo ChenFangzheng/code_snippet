@@ -1,6 +1,17 @@
 
 import './index.scss';
-import WaveChart from './components/waveChart';
+import { RoseOrderList } from './components/roseOrderListComponent';
 
-const waveChart = new WaveChart('waveChart');
-waveChart.render();
+let orderList = new RoseOrderList('rose');
+orderList.render();
+
+
+
+
+
+
+
+// import WaveChart from './components/waveChart';
+
+// const waveChart = new WaveChart('waveChart');
+// waveChart.render();
