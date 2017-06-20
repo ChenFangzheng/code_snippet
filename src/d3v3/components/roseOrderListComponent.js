@@ -6,7 +6,7 @@ const sData = [
     { name: "MOI编码、属性及重点数据维护", percent: 15 },
     { name: "事件类别维护", percent: 10 },
     { name: "时间管理升级", percent: 6 },
-    { name: "专用设备", percent: 4 },
+    { name: "专用设备", percent: 4 }
 ];
 
 export class RoseOrderList {
@@ -18,9 +18,48 @@ export class RoseOrderList {
             .append('svg')
             .attr('width', "100%")
             .attr('height', "100%");
+        this.colors = [
+            ['rgba(248,160,54,0.7)', 'rgba(248,160,54,0)'],
+            ['rgba(1,255,255,0.7)', 'rgba(1,255,255,0)',],
+            ['rgba(67,186,254,0.7)', 'rgba(67,186,254,0)'],
+            ['rgba(80,200,136,0.7)', 'rgba(80,200,136,0)'],
+            ['rgba(234,233,232,0.5)', 'rgba(234,233,232,0)']
+        ]
     }
 
-    render() {
+    render(data = sData) {
+
+        let orderTxtG = this.svg.append('g')
+            .attr('transform', 'translate(230,0)')
+            .attr('class', 'list');
+
+        this.addOrderTxt(orderTxtG);
+
+        let arcG = this.svg.append('g')
+            .attr('transform', `translate(${this.circleCenter.x + 10}, 220)`);
+
+        let bins = [
+            [170, 200],
+            [150, 170],
+            [120, 150],
+            [90, 110],
+            [70, 90]
+        ];
+
+        data.sort((a, b) => {
+            return b.percent - a.percent;
+        })
+
+        data.forEach((item, i) => {
+            let angleStep = 0.13 * Math.PI;
+            let xScale = d3.scale.linear().domain([0, 100]).range(bins[i]);
+            this.drawArch(arcG, i, xScale(item.percent), item.percent, this.colors[i][0], this.colors[i][1],
+                angleStep * i, angleStep * (i + 1));
+        });
+        this.drawTitleAndCircle();
+    }
+
+    drawTitleAndCircle() {
         let circleG = this.svg.append('g')
             .attr("transform", "translate(10,170)");
         circleG.append('circle')
@@ -37,22 +76,10 @@ export class RoseOrderList {
             .attr('class', 'title')
             .text(this.title)
             .attr('transform', 'translate(15,56)');
-        let arcG = this.svg.append('g')
-            .attr('transform', `translate(${this.circleCenter.x + 10}, 220)`);
-        let orderTxtG = this.svg.append('g')
-            .attr('transform', 'translate(230,0)')
-            .attr('class', 'list');
 
-        this.addOrderTxt(orderTxtG, '法律法规', 1);
-
-        this.drawArch(arcG, 'first', 190, 'rgba(248,160,54,0.7)', 'rgba(248,160,54,0)', 0, 0.13 * Math.PI);
-        this.drawArch(arcG, 'second', 160, 'rgba(1,255,255,0.7)', 'rgba(1,255,255,0)', 0.13 * Math.PI, 0.26 * Math.PI);
-        this.drawArch(arcG, 'third', 130, 'rgba(67,186,254,0.7)', 'rgba(67,186,254,0)', 0.26 * Math.PI, 0.39 * Math.PI);
-        this.drawArch(arcG, 'four', 100, 'rgba(80,200,136,0.7)', 'rgba(80,200,136,0)', 0.39 * Math.PI, 0.52 * Math.PI);
-        this.drawArch(arcG, 'five', 70, 'rgba(234,233,232,0.5)', 'rgba(234,233,232,0)', 0.52 * Math.PI, 0.65 * Math.PI);
     }
 
-    drawArch(parentG, id, r, startColor, stopColor, startAngle, endAngle) {
+    drawArch(parentG, id, r, percentage, startColor, stopColor, startAngle, endAngle) {
         let arc = d3.svg.arc()
             .innerRadius(0)
             .outerRadius(r)
@@ -65,7 +92,7 @@ export class RoseOrderList {
             .attr("x1", `${(endAngle) * 100 / Math.PI}%`)
             .attr("x2", "0%")
             .attr("y1", "0%")
-            .attr("y2", "100%");
+            .attr("y2", "85%");
 
         radialGradient.append("stop")
             .attr('offset', '0%')
@@ -83,7 +110,7 @@ export class RoseOrderList {
 
         let angle = startAngle + endAngle;
         parentG.append('text')
-            .text('90%')
+            .text(percentage + '%')
             .style('fill', startColor)
             .attr('class', 'pct')
             .attr('x', r * Math.sin(angle / 2))
@@ -100,7 +127,7 @@ export class RoseOrderList {
         return html;
     }
 
-    addOrderTxt(parentG, txt, order) {
+    addOrderTxt(parentG) {
         let frnObj = parentG.append('foreignObject')
             .attr('width', '170px')
             .attr('height', '300px')
