@@ -33,7 +33,7 @@ export class RoseOrderList {
             .attr('transform', 'translate(230,0)')
             .attr('class', 'list');
 
-        this.addOrderTxt(orderTxtG);
+        this.addOrderTxt(orderTxtG, data);
 
         let arcG = this.svg.append('g')
             .attr('transform', `translate(${this.circleCenter.x + 10}, 220)`);
@@ -127,11 +127,11 @@ export class RoseOrderList {
         return html;
     }
 
-    addOrderTxt(parentG) {
+    addOrderTxt(parentG, data) {
         let frnObj = parentG.append('foreignObject')
             .attr('width', '170px')
             .attr('height', '300px')
             .append("xhtml:body")
-            .html(this.getOrderListHtml());
+            .html(this.getOrderListHtml(data));
     }
 }
