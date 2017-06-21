@@ -10,8 +10,23 @@
         border: 1px solid blue;
     }
     #rose{
-    width:400px;
-    height: 310px;
-    background-color: #042251;
-}
+        width:400px;
+        height: 310px;
+        background-color: #042251;
+    }
+    #roseR{
+        width:490px;
+        height: 260px;
+        background-color: #042251;
+        overflow: hidden;
+    }
+    h3 {
+        color: #fff;
+        font-size: 25px;
+        font-family: "Microsoft YaHei";
+        font-weight: normal;
+        padding: 0px;
+        margin: 12px 15px;
+        text-align: left;
+    }
 }

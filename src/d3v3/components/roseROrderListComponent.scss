@@ -1,0 +1,70 @@
+.roseRightOrderList{
+    position: relative;
+    .svgWrapper{
+        position: absolute;
+        top:0;
+        right: 0;
+        width:166px;
+        height: 210px;
+        // background: rgba(0,0,0,0.2);
+        .inner{
+            fill: transparent;
+            stroke: #7791ab;
+            stroke-width: 2px;
+        }
+        .outter{
+            fill: transparent;
+            stroke: #7791ab;
+            stroke-width: 1px;
+        }
+        .circleText{
+            fill: white;
+            font-family: "Microsoft Yahei";
+            font-size:15px;
+        }
+        .pct{
+            font-size: 12px;
+            fill:#fff;
+        }
+    }
+    ul{
+        list-style: none;
+        padding: 0;
+        margin: 0px 0px 0px 15px;
+        li{
+            height: 40px;
+            // border: 1px solid red;
+            box-sizing: border-box;
+            padding-top:10px;
+            span{
+                color: #fff;
+                display: inline-block;
+                font-family: "Microsoft YaHei";
+                &.order{
+                    color: #00ffff;
+                    width:30px;
+                    text-align: center;
+                    font-family: 'Arial Bold';
+                    font-size: 17px;
+                }
+                &.name{
+                    width: 100px;
+                    text-align: right;
+                }
+                &.num{
+                    width:60px;
+                    color: #00ffff;
+                    position: relative;
+                    &:after{
+                        content:'';
+                        position: absolute;
+                        width:100px;
+                        height: 8px;
+                        margin-left: 12px;
+                        border-bottom: 1px dashed #fff;
+                    }
+                }
+            }
+        }
+    }
+}

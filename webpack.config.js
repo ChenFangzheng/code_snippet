@@ -14,7 +14,7 @@ module.exports = {
         d3v4page: path.resolve(APP_PATH, './d3v4/index.js'),
         highcharts: path.resolve(APP_PATH, './highcharts/index.js'),
         jsbasic: path.resolve(APP_PATH, './jsbasic/index.js'),
-        //vendors: ['jquery', 'highcharts', 'd3', 'lodash', 'babel-polyfill']
+        vendors: ['jquery', 'highcharts', 'd3', 'lodash', 'babel-polyfill']
     },
     output: {
         path: BUILD_PATH,
