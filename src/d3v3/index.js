@@ -3,7 +3,7 @@ import './index.scss';
 import { RoseROrderList } from './components/roseROrderListComponent';
 
 let orderList = new RoseROrderList('roseR', '服务请求类型Top5');
-orderList.renderList();
+orderList.render();
 
 // import { RoseOrderList } from './components/roseOrderListComponent';
 

@@ -45,7 +45,7 @@ export class RoseROrderList {
         return wrapperHtml;
     }
 
-    renderList(data = sData) {
+    render(data = sData) {
         let $container = $(`#${this.containerId}`);
         $container.html(this.getItemListHtml(data));
 
